@@ -12,25 +12,41 @@
 </head>
 
 <body>
+
+    <script>
+        const nameLabel = document.getElementById('name-label');
+        const nameInput = document.getElementById('name');
+
+        nameInput.addEventListener('input', () => {
+            if (nameInput.value.length < 3) {
+                nameLabel.classList.remove('success');
+                nameLabel.classList.add('error');
+            } else {
+                nameLabel.classList.remove('error');
+                nameLabel.classList.add('success');
+            }
+        });
+    </script>
+
     <form action="/">
         <h1>Login</h1>
 
         <div class="form-section">
-            <input type="text" name="name" autocomplete="off" class="form-input">
-            <label for="name" class="input-label">
-
+            <input type="text" name="name" id="name" autocomplete="off" required class="form-input">
+            <label for="name" class="input-label" id="name-label">
                 <span class="label-name">Name</span>
             </label>
         </div>
         <div class="form-section">
-            <input type="password" name="password" autocomplete="off" class="form-input">
+            <input type="password" name="password" autocomplete="off" required class="form-input">
             <label for="password" class="input-label">
-
                 <span class="label-name">Password</span>
             </label>
         </div>
 
         <button>Submit</button>
+    </form>
+
 </body>
 
 </html>
